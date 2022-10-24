@@ -1,0 +1,28 @@
+<odoo>
+    <template id="registration_template" inherit_id="website_event.registration_template">
+        <xpath expr="//form[@id='registration_form']" position="before">
+                <div id="internal_event_registration" t-if="not event.is_external"/>
+                <div t-if="event.is_external">
+                    <div class="mb-5">
+                        <div class="o_wevent_theme_bg_base shadow-sm o_wevent_js_ticket_details">
+                            <div class="collapse show">
+                                <div class="collapse show">
+                                    <div class="row g-0">
+                                        <div class="d-grid col-md-4 offset-md-8 py-2 ps-md-0 pe-md-2">
+                        <a class="btn btn-primary o_wait_lazy_js a-submit" target="_blank"
+                           t-att-href="event.external_registration_page">
+                            Register
+                        </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        </xpath>
+        <xpath expr="//div[@id='internal_event_registration']" position="inside">
+            <xpath expr="//form[@id='registration_form']" position="move"/>
+        </xpath>
+    </template>
+</odoo>
